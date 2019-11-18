@@ -1,5 +1,5 @@
 import React from 'react';
-import AddItem from "./components/AddItem/AddItem"
+import CalculatorAlimente from "./components/CalculatorAlimente/CalculatorAlimente"
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 
@@ -8,7 +8,7 @@ function App() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="md">
-        <AddItem/>
+        <CalculatorAlimente/>
       </Container>
     </React.Fragment>
   );

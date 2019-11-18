@@ -6,7 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
 import { items } from "../../db-items";
 
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const AddItem = () => {
+const AddItem = (props) => {
   const classes = useStyles();
 
   const [foodType, setFoodType] = useState("");
@@ -50,7 +50,7 @@ const AddItem = () => {
   };
 
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={2}>
       <Grid item xs={4}>
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor="tip-mancare">Categorie</InputLabel>
@@ -74,7 +74,7 @@ const AddItem = () => {
             labelId="mancare"
             onChange={setFoodItemHandler}
             value={foodItem}
-            disabled = {foodType ? false : true}
+            disabled={foodType ? false : true}
           >
             {items
               .filter(type => type.tip === foodType)
@@ -92,7 +92,7 @@ const AddItem = () => {
             label="Gramaj"
             value={weight}
             onChange={setWeightHandler}
-            disabled = {foodType && foodItem ? false : true}
+            disabled={foodType && foodItem ? false : true}
           />
         </FormControl>
       </Grid>
@@ -100,9 +100,14 @@ const AddItem = () => {
         <Preview foodItem={foodItem} weight={weight} />
       </Grid>
       <Grid item xs={12}>
-      <Button variant="contained" color="primary" disabled={foodType && foodItem && weight ? false : true}>
-        Adauga alimentul
-      </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          disabled={foodType && foodItem && weight ? false : true}
+          onClick={() => props.addItem({ value: foodItem, gramaj: weight })}
+        >
+          Adauga alimentul
+        </Button>
       </Grid>
     </Grid>
   );
