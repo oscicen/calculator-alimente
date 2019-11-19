@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const AddItem = (props) => {
+const AddItem = props => {
   const classes = useStyles();
 
   const [foodType, setFoodType] = useState("");
@@ -104,7 +104,12 @@ const AddItem = (props) => {
           variant="contained"
           color="primary"
           disabled={foodType && foodItem && weight ? false : true}
-          onClick={() => props.addItem({ value: foodItem, gramaj: weight })}
+          onClick={() => {
+            setFoodType("");
+            setFoodItem("");
+            setWeight("");
+            return props.addItem({ value: foodItem, gramaj: weight });
+          }}
         >
           Adauga alimentul
         </Button>
