@@ -5,6 +5,15 @@ import Item from "./Item/Item";
 import { items } from "../../db-items";
 
 const ItemsList = props => {
+
+	const total = props.alimente.length ? ( props.alimente.reduce((acc, item) => {
+		const aliment = items.find(alm => alm.value === item.value);
+		acc.calorii += aliment.calorii * item.gramaj / 100
+		return acc;
+	}, { calorii: 0, proteine: 0, lipide: 0, carbohidrati: 0, fibre: 0 })) : null;
+
+	console.log(total);
+
   const listaAlimente = props.alimente.length ? (
     <div>
 			
@@ -26,6 +35,14 @@ const ItemsList = props => {
 			<Grid item xs={2}>Fibre</Grid>
 		</Grid>
 		{listaAlimente}
+		<Grid container spacing={2}>
+			<Grid item xs={2}>Total</Grid>
+			<Grid item xs={2}>{ props.alimente.length ? total.calorii : null}</Grid>
+			<Grid item xs={2}>{ props.alimente.length ? total.proteine : null}</Grid>
+			<Grid item xs={2}>{ props.alimente.length ? total.lipide : null}</Grid>
+			<Grid item xs={2}>{ props.alimente.length ? total.carbohidrati : null}</Grid>
+			<Grid item xs={2}>{ props.alimente.length ? total.fibre : null}</Grid>
+		</Grid>
 	</>
 	);
 };
