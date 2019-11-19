@@ -34,7 +34,7 @@ const ItemsList = props => {
     <Grid
       container
       spacing={2}
-      style={{ backgroundColor: "#1565C0", color: "#fff" }}
+      style={{ borderTop: "1px solid #eee", marginTop: "12px" }}
     >
       <Grid item xs={2}>
         <strong>Total</strong>
