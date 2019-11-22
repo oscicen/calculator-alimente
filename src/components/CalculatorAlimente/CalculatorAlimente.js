@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import AddItem from "../AddItem/AddItem";
 import ItemsList from "../ItemsList/ItemsList";
 
-const CalculatorAlimente = props => {
-	const [alimente, setAlimente] = useState([]);
+const CalculatorAlimente = () => {
+	const [foodItems, setFoodItems] = useState([]);
 	
-	const addItemHandler = aliment => {
-		setAlimente([
-			...alimente,
-			aliment
+	const addFoodHandler = food => {
+		setFoodItems([
+			...foodItems,
+			food
 		])
 	}
 
   return (
     <div>
-      <AddItem addItem={addItemHandler} />
-      <ItemsList alimente={alimente} />
+      <AddItem addItem={addFoodHandler} />
+      <ItemsList alimente={foodItems} />
     </div>
   );
 };

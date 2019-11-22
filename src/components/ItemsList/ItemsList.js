@@ -1,11 +1,23 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Item from "./Item/Item";
 import { items } from "../../db-items";
 import { calcItem } from "../../utils/calculate";
 
+const useStyles = makeStyles(theme => ({
+  paper: {
+    padding: 18,
+    marginBottom: 24
+  }
+}));
+
 const ItemsList = props => {
+
+  const classes = useStyles()
+
   const total = props.alimente.length
     ? props.alimente.reduce(
         (acc, item) => {
@@ -59,28 +71,30 @@ const ItemsList = props => {
 
   return (
     <>
-      <Grid container spacing={2}>
-        <Grid item xs={2}>
-          Aliment:
+      <Paper className={classes.paper}>
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
+            Aliment:
+          </Grid>
+          <Grid item xs={2}>
+            Calorii
+          </Grid>
+          <Grid item xs={2}>
+            Proteine
+          </Grid>
+          <Grid item xs={2}>
+            Lipide
+          </Grid>
+          <Grid item xs={2}>
+            Carbohidrati
+          </Grid>
+          <Grid item xs={2}>
+            Fibre
+          </Grid>
         </Grid>
-        <Grid item xs={2}>
-          Calorii
-        </Grid>
-        <Grid item xs={2}>
-          Proteine
-        </Grid>
-        <Grid item xs={2}>
-          Lipide
-        </Grid>
-        <Grid item xs={2}>
-          Carbohidrati
-        </Grid>
-        <Grid item xs={2}>
-          Fibre
-        </Grid>
-      </Grid>
-      {listaAlimente}
-      {totalAlimente}
+        {listaAlimente}
+        {totalAlimente}
+      </Paper>
     </>
   );
 };
