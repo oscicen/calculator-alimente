@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AddItem from "../AddItem/AddItem";
-import ItemsList from "../ItemsList/ItemsList";
+import ListItems from "../ListItems/ListItems";
 
 const CalculatorAlimente = () => {
 	const [foodItems, setFoodItems] = useState([]);
@@ -15,7 +15,7 @@ const CalculatorAlimente = () => {
   return (
     <div>
       <AddItem addItem={addFoodHandler} />
-      <ItemsList alimente={foodItems} />
+      <ListItems alimente={foodItems} />
     </div>
   );
 };
