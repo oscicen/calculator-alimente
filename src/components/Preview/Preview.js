@@ -37,7 +37,7 @@ const Preview = props => {
       </Table>
     </>
   ) : (
-    <p>Completeaza campurile de mai sus.</p>
+    <p style={{ textAlign: "center" }}>Completeaza campurile de mai sus.</p>
   );
 
   return infoReady;

@@ -38,8 +38,11 @@ const ListItems = props => {
       )
     : null;
 
-  const listaAlimente = props.alimente.length ? (
-    <>
+  const listItemsTable = props.alimente.length ? (
+    <Table className={classes.root} size="small">
+      <TableItem 
+        itemType="head" 
+      />
       {props.alimente.map((item, i) => {
         const aliment = items.find(alm => alm.value === item.value);
         return (
@@ -57,11 +60,7 @@ const ListItems = props => {
           />
          );
       })}
-    </>
-  ) : null;
-
-  const totalAlimente = props.alimente.length ? (
-    <TableItem
+      <TableItem
       itemType="footer"
       itemData={[
         "Total",
@@ -73,18 +72,15 @@ const ListItems = props => {
         total.gramaj
       ]}
     />
-  ) : null;
+    </Table>
+  ) : (
+    <p style={{textAlign: "center"}}>Adauga alimente in lista</p>
+  );
 
   return (
     <>
       <Paper className={classes.paper}>
-        <Table className={classes.root} size="small">
-          <TableItem 
-            itemType="head" 
-          />
-        {listaAlimente}
-        {totalAlimente}
-        </Table>
+        {listItemsTable}
       </Paper>
     </>
   );

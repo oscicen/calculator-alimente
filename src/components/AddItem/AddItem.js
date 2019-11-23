@@ -19,7 +19,8 @@ const types = [
   "oua",
   "proteine-vegetale",
   "legume",
-  "fructe"
+  "fructe",
+  "paine"
 ];
 
 const useStyles = makeStyles(theme => ({

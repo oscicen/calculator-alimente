@@ -508,5 +508,25 @@ export const items = [
       "carbohidrati": 60,
       "fibre": 22,
       "tip": "fructe"
+    },
+    {
+      "nume": "paine alba",
+      "value": "paine-alba",
+      "calorii": 266,
+      "proteine": 7.6,
+      "lipide": 3.3,
+      "carbohidrati": 50.6,
+      "fibre": 2.4,
+      "tip": "paine"
+    },
+    {
+      "nume": "paine neagra",
+      "value": "paine-neagra",
+      "calorii": 249,
+      "proteine": 8.5,
+      "lipide": 0.8,
+      "carbohidrati": 50.6,
+      "fibre": 5,
+      "tip": "paine"
     }
   ]
